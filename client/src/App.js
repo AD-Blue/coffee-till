@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Menu from './Components/Menu';
 
 function App() {
   return (
     <div className="App">
-      Coffee Till
+      <Menu />
     </div>
   );
 }
