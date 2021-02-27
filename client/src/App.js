@@ -7,10 +7,9 @@ import SizeBar from './Components/SizeBar';
 
 function App() {
   return (
-    <Flex className="App" flexDirection="row" h="100%">
-      <ItemList />
-      <SizeBar />
+    <Flex className="App" flexDirection="row" h="100%" justify="space-between">
       <Menu />
+      <ItemList />
     </Flex>
   );
 }

@@ -1,17 +1,64 @@
 import React from 'react';
-import { Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Flex, Grid, SimpleGrid, Text, Box } from "@chakra-ui/react";
 import MenuCard from './MenuCard';
+import SizeBar from './SizeBar';
 
 export default function Menu() {
     return (
-        <Grid templateColumns="repeat(5, 1fr)" templateRows="repeat(5, 1fr)" gap={10} w="45%">   {/* Change number of rows in the future to resize based on # of items in db */}
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-            <MenuCard />
-        </Grid>
+        <Flex direction="column" w='100%'>
+            <SizeBar />
+            <SimpleGrid 
+                columns={
+                    [
+                        3, 
+                        3,
+                        3,
+                        4,
+                        4, 
+                        5
+                    ]
+                } 
+                spacingX='5%'
+                spacingY='5%'
+                w="100%" p='2%'
+                overflowY='scroll'
+                bg={[
+                    'yellow',
+                    'green',
+                    'blue',
+                    'orange',
+                    'purple',
+                    'red']}
+                css={{
+                    '&::-webkit-scrollbar': {
+                        width: '12px',
+                        background: 'red'
+                    }
+                }}
+                h='100%'
+            >
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+                <MenuCard />
+            </SimpleGrid>
+        </Flex>
     )
 }
