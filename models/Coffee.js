@@ -5,7 +5,15 @@ const CoffeeSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Coffee needs a name']
     },
-    price: {
+    smPrice: {
+        type: Number,
+        required: [true, 'Coffee needs a price']
+    },
+    mdPrice: {
+        type: Number,
+        required: [true, 'Coffee needs a price']
+    },
+    lgPrice: {
         type: Number,
         required: [true, 'Coffee needs a price']
     }

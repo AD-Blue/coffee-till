@@ -18,7 +18,24 @@ export default(state, action) => {
                 ...state,
                 coffees: [...state.coffees, action.payload]
             }
-        case 'COFFEE_ERROR':
+        case 'GET_PASTRIES':
+            return {
+                ...state,
+                loading: false,
+                pastries: action.payload
+            }
+        case 'GET_PASTRY':
+            return {
+                ...state,
+                loading: false,
+                pastry: action.payload
+            }
+        case 'ADD_PASTRY':
+            return {
+                ...state,
+                pastries: [...state.pastries, action.payload]
+            }
+        case 'ERROR':
             return {
                 ...state,
                 error: action.payload

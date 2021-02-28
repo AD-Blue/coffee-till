@@ -5,6 +5,8 @@ import axios from 'axios';
 const initialState = {
     coffees: [],
     coffee: {},
+    pastries: [],
+    pastry: {},
     error: null,
     loading: true
 }
@@ -24,7 +26,7 @@ export const GlobalProvider = ({ children }) => {
             })
         } catch (err) {
             dispatch({
-                type: 'COFFEE_ERROR',
+                type: 'ERROR',
                 payload: err.response.data.error
             })
         }
@@ -40,7 +42,7 @@ export const GlobalProvider = ({ children }) => {
             })
         } catch (err) {
             dispatch({
-                type: 'COFFEE_ERROR',
+                type: 'ERROR',
                 payload: err.response.data.error
             })
         }
@@ -62,7 +64,61 @@ export const GlobalProvider = ({ children }) => {
             })
         } catch (err) {
             dispatch({
-                type: 'COFFEE_ERROR',
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
+        }
+    }
+
+    async function getPastries() {
+        try {
+            const res = await axios.get('/api/v1/pastries');
+            
+            dispatch({
+                type: 'GET_PASTRIES',
+                payload: res.data.data
+            })
+        } catch (err) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
+        }
+    }
+    
+    async function getPastry(id) {
+        try {
+            const res = await axios.get(`/api/v1/pastries/${id}`);
+    
+            dispatch({
+                type: 'GET_PASTRY',
+                payload: res.data.data
+            })
+        } catch (err) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
+        }
+    }
+    
+    async function addPastry(pastry) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    
+        try {
+            const res = await axios.post('/api/v1/pastries', pastry, config);
+            
+            dispatch({
+                type: 'ADD_PASTRY',
+                paylaod: res.data.data
+            })
+        } catch (err) {
+            dispatch({
+                type: 'ERROR',
                 payload: err.response.data.error
             })
         }
@@ -75,7 +131,10 @@ export const GlobalProvider = ({ children }) => {
         loading: state.loading,
         getCoffees,
         getCoffee,
-        addCoffee
+        addCoffee,
+        getPastries,
+        getPastry,
+        addPastry
     }}>
         {children}
     </GlobalContext.Provider>)

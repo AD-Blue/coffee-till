@@ -1,53 +1,25 @@
 import React, { useContext, useEffect } from 'react';
-import { Flex, Grid, SimpleGrid, Text, Box } from "@chakra-ui/react";
-import MenuCard from './MenuCard';
+import { Flex, SimpleGrid, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import SizeBar from './SizeBar';
+import MenuGrid from './MenuGrid';
 import {GlobalContext} from '../Context/GlobalState';
 
 export default function Menu() {
-    const { coffees, getCoffees } = useContext(GlobalContext);
+    const { coffees, getCoffees, pastries, getPastries, pastry, getPastry  } = useContext(GlobalContext);
 
     useEffect(() => {
         getCoffees();
+        getPastries();
+        getPastry('603afe070d27725698cef0e7');
     }, []);
+
+    console.log(pastries)
 
     return (
         <Flex direction="column" w='100%'>
+
             <SizeBar />
-            <SimpleGrid 
-                columns={
-                    [
-                        3, 
-                        3,
-                        3,
-                        4,
-                        4, 
-                        5
-                    ]
-                } 
-                spacingX='5%'
-                spacingY='5%'
-                w="100%" p='2%'
-                overflowY='scroll'
-                bg={[
-                    'yellow',
-                    'green',
-                    'blue',
-                    'orange',
-                    'purple',
-                    'red']}
-                css={{
-                    '&::-webkit-scrollbar': {
-                        width: '12px',
-                        background: 'red'
-                    }
-                }}
-                h='100%'
-            >
-                {coffees.map((coffee) => (
-                    <MenuCard coffee={coffee} />
-                ))}
-            </SimpleGrid>
+            <MenuGrid items={coffees} />
         </Flex>
     )
 }

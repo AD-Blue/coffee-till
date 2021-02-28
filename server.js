@@ -9,11 +9,13 @@ dotenv.config({ path: './config/config.env'})
 connectDB();
 
 const coffees = require('./routes/coffeeRoutes');
+const pastries = require('./routes/pastryRoutes');
 
 const app = express();
 
 app.use(express.json());
 app.use('/api/v1/coffees', coffees);
+app.use('/api/v1/pastries', pastries);
 
 const PORT = process.env.PORT || 5000;
 

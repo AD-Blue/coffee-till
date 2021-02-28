@@ -1,12 +1,12 @@
-const Coffee = require('../models/Coffee');
+const Pastry = require('../models/Pastry');
 
-exports.getCoffees = async (req, res, next) => {
+exports.getPastries = async (req, res, next) => {
     try {
-        const coffees = await Coffee.find();
+        const pastries = await Pastry.find();
         
         return res.status(200).json({
             success: true,
-            data: coffees
+            data: pastries
         })
     } catch (err) {
         return res.status(500).json({
@@ -16,20 +16,20 @@ exports.getCoffees = async (req, res, next) => {
     }
 }
 
-exports.getCoffee = async (req, res, next) => {
+exports.getPastry = async (req, res, next) => {
     try {
-        const coffee = await Coffee.findById(req.params.id);
+        const pastry = await Pastry.findById(req.params.id);
 
-        if(!coffee) {
+        if(!pastry) {
             return res.status(404).json({
                 success: false,
-                error: 'Coffee not found'
+                error: 'Pastry not found'
             });
         }
 
         return res.status(200).json({
             success: true,
-            data: coffee
+            data: pastry
         })
     } catch (err) {
         return res.status(500).json({
@@ -39,15 +39,15 @@ exports.getCoffee = async (req, res, next) => {
     }
 }
 
-exports.addCoffee = async (req, res, next) => {
+exports.addPastry = async (req, res, next) => {
     try {
-        const {name, smPrice, mdPrice, lgPrice} = req.body;
+        const {name, price} = req.body;
 
-        const coffee = await Coffee.create(req.body);
+        const pastry = await Pastry.create(req.body);
 
         return res.status(201).json({
             success: true,
-            data: coffee
+            data: pastry
         })
     } catch (err) {
         if(err.name === 'ValidationError'){
