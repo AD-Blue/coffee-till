@@ -10,12 +10,14 @@ connectDB();
 
 const coffees = require('./routes/coffeeRoutes');
 const pastries = require('./routes/pastryRoutes');
+const saleItems = require('./routes/saleItemRoutes');
 
 const app = express();
 
 app.use(express.json());
 app.use('/api/v1/coffees', coffees);
 app.use('/api/v1/pastries', pastries);
+app.use('/api/v1/saleItems', saleItems);
 
 const PORT = process.env.PORT || 5000;
 
