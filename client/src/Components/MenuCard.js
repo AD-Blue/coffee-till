@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, GridItem, Text } from "@chakra-ui/react";
 
-export default function MenuCard() {
+export default function MenuCard({coffee}) {
     return (
         <GridItem 
             rowSpan={1} colSpan={1} 
@@ -17,7 +17,7 @@ export default function MenuCard() {
         >
             <Flex justify="center" align="center" h="100%">
                 <Text>
-                    Placeholder Item
+                    {coffee.name}
                 </Text>
             </Flex>
         </GridItem>

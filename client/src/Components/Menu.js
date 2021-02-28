@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Flex, Grid, SimpleGrid, Text, Box } from "@chakra-ui/react";
 import MenuCard from './MenuCard';
 import SizeBar from './SizeBar';
+import {GlobalContext} from '../Context/GlobalState';
 
 export default function Menu() {
+    const { coffees, getCoffees } = useContext(GlobalContext);
+
+    useEffect(() => {
+        getCoffees();
+    }, []);
+
     return (
         <Flex direction="column" w='100%'>
             <SizeBar />
@@ -37,27 +44,9 @@ export default function Menu() {
                 }}
                 h='100%'
             >
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
-                <MenuCard />
+                {coffees.map((coffee) => (
+                    <MenuCard coffee={coffee} />
+                ))}
             </SimpleGrid>
         </Flex>
     )
