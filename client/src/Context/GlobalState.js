@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useState } from 'react';
 import AppReducer from './AppReducer';
 import axios from 'axios';
 
@@ -15,6 +15,7 @@ export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
+    const [selection, setSelection] = useState('coffees');
 
     async function getCoffees() {
         try {
@@ -127,6 +128,8 @@ export const GlobalProvider = ({ children }) => {
     return (<GlobalContext.Provider value = {{
         coffees: state.coffees,
         coffee: state.coffee,
+        pastries: state.pastries,
+        pastry: state.pastry,
         error: state.error,
         loading: state.loading,
         getCoffees,
@@ -134,7 +137,9 @@ export const GlobalProvider = ({ children }) => {
         addCoffee,
         getPastries,
         getPastry,
-        addPastry
+        addPastry,
+        selection,
+        setSelection
     }}>
         {children}
     </GlobalContext.Provider>)

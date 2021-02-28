@@ -3,7 +3,6 @@ import './App.css';
 import Menu from './Components/Menu';
 import { Flex, Box } from "@chakra-ui/react";
 import ItemList from './Components/Item/ItemList';
-import SizeBar from './Components/SizeBar';
 import {GlobalProvider} from './Context/GlobalState';
 
 function App() {
