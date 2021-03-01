@@ -9,6 +9,10 @@ const initialState = {
     pastry: {},
     items: [],
     item: {},
+    orders: [],
+    order: {},
+    reports: [],
+    report: {},
     error: null,
     loading: true
 }
@@ -63,7 +67,7 @@ export const GlobalProvider = ({ children }) => {
             
             dispatch({
                 type: 'ADD_COFFEE',
-                paylaod: res.data.data
+                payload: res.data.data
             })
         } catch (err) {
             dispatch({
@@ -173,7 +177,7 @@ export const GlobalProvider = ({ children }) => {
             
             dispatch({
                 type: 'ADD_PASTRY',
-                paylaod: res.data.data
+                payload: res.data.data
             })
         } catch (err) {
             dispatch({
@@ -227,7 +231,7 @@ export const GlobalProvider = ({ children }) => {
             
             dispatch({
                 type: 'ADD_ORDER',
-                paylaod: res.data.data
+                payload: res.data.data
             })
         } catch (err) {
             dispatch({
@@ -281,7 +285,7 @@ export const GlobalProvider = ({ children }) => {
             
             dispatch({
                 type: 'ADD_ORDER',
-                paylaod: res.data.data
+                payload: res.data.data
             })
         } catch (err) {
             dispatch({

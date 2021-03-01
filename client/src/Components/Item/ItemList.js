@@ -5,7 +5,7 @@ import { GlobalContext } from '../../Context/GlobalState';
 import { numberWithCommas } from '../../utils/format';
 
 export default function ItemList() {
-    const { items, getItems } = useContext(GlobalContext);
+    const { items, getItems, removeItem, addOrder } = useContext(GlobalContext);
 
     console.log('itemlist rendered')
 
@@ -25,6 +25,27 @@ export default function ItemList() {
         content = <Text>Loading...</Text>
     }
 
+    const handlePay = () => {
+        console.log("paying...");
+
+        const itemList = [];
+
+        for (const item of items) {
+            itemList.push(item);
+        }
+        console.log('creating new order...')
+        const newOrder = {
+            items: itemList,
+            total: total
+        }
+
+        addOrder(newOrder);
+        console.log('new order added');
+        for (const item of items) {
+            removeItem(item._id);
+        }
+    }
+
     return (
         <Flex w="25%" bg='#037ef3' flexDirection='column'>
             <UnorderedList w="90%" pl="3%">
@@ -32,7 +53,7 @@ export default function ItemList() {
             </UnorderedList>
             <Spacer />
             <Text ml="3%" align="right" mb="3%" mr='3%'>Total: ${numberWithCommas(total.toFixed(2))}</Text>
-            <Button colorScheme="orange" variant="outline" ml="3%" mr="3%" mb="2%">
+            <Button colorScheme="orange" variant="outline" ml="3%" mr="3%" mb="2%" onClick={handlePay}>
                 Pay
             </Button>
         </Flex>

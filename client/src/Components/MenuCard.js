@@ -11,7 +11,6 @@ export default function MenuCard({transaction}) {
     let price = 0;
 
     if (selection == 'pastries') {
-        name = transaction.name;
         price = transaction.price;
     }
 
