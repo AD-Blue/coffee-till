@@ -4,7 +4,7 @@ import { Flex, GridItem, Text, Button,
 } from "@chakra-ui/react";
 import {GlobalContext} from '../Context/GlobalState';
 
-export default function MenuCard({item}) {
+export default function MenuCard({transaction}) {
     const {selection} = useContext(GlobalContext);
 
     const handleClick = () => {
@@ -64,7 +64,7 @@ export default function MenuCard({item}) {
                 >
                     <Flex justify="center" align="center" h="100%">
                         <Text>
-                            {item.name}
+                            {transaction.name}
                         </Text>
                     </Flex>
                 </GridItem> 

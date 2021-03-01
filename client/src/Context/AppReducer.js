@@ -40,6 +40,56 @@ export default(state, action) => {
                 ...state,
                 error: action.payload
             }
+        case 'GET_ITEMS':
+            return {
+                ...state,
+                loading: false,
+                items: action.payload
+            }
+        case 'ADD_ITEM':
+            return {
+                ...state,
+                items: [...state.items, action.payload]
+            }
+        case 'REMOVE_ITEM':
+            return {
+                ...state,
+                items: state.items.filter(item => item._id !== action.payload)
+            }
+        case 'GET_ORDERS':
+            return {
+                ...state,
+                loading: false,
+                orders: action.payload
+            }
+        case 'GET_ORDER':
+            return {
+                ...state,
+                loading: false,
+                order: action.payload
+            }
+        case 'ADD_ORDER':
+            return {
+                ...state,
+                orders: [...state.orders, action.payload]
+            }
+        case 'GET_REPORTS':
+            return {
+                ...state,
+                loading: false,
+                reports: action.payload
+            }
+        case 'GET_REPORT':
+            return {
+                ...state,
+                loading: false,
+                report: action.payload
+            }
+        case 'ADD_REPORT':
+            return {
+                ...state,
+                reports: [...state.reports, action.payload]
+            }
         default:
             return state;
     }

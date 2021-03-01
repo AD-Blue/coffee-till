@@ -3,7 +3,7 @@ import MenuCard from './MenuCard';
 import { Flex, SimpleGrid, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 
-export default function MenuGrid({items}) {
+export default function MenuGrid({transactions}) {
     return (
         <SimpleGrid 
                 columns={
@@ -28,8 +28,8 @@ export default function MenuGrid({items}) {
                 }}
                 h='100%'
             >
-                {items.map((item) => (
-                    <MenuCard key={item._id} item={item} />
+                {transactions.map((transaction) => (
+                    <MenuCard key={transaction._id} transaction={transaction} />
                 ))}
             </SimpleGrid>
     )

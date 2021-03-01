@@ -1,17 +1,16 @@
 import React from 'react';
 import { ListItem, Text, Flex, Spacer } from "@chakra-ui/react"
 import AddOn from './AddOn';
+import { numberWithCommas } from '../../utils/format';
 
-export default function ItemCard() {
+export default function ItemCard({item}) {
     return (
         <ListItem>
             <Flex bg='tomato' fontSize="18px">
-                <Text>Item Name</Text>
+                <Text>{item.name}</Text>
                 <Spacer />
-                <Text>$X.YZ</Text>
+                <Text>${numberWithCommas(item.price.toFixed(2))}</Text>
             </Flex>
-            <AddOn />
-            <AddOn />
         </ListItem>
     )
 }

@@ -18,7 +18,7 @@ exports.getItems = async (req, res, next) => {
 
 exports.addItem = async (req, res, next) => {
     try {
-        const {item, price} = req.body;
+        const {name, price} = req.body;
 
         const saleItem = await SaleItem.create(req.body);
 
