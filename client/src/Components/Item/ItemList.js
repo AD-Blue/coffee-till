@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Flex, Button, Text, UnorderedList, Spacer } from "@chakra-ui/react";
 import ItemCard from './ItemCard';
 import { GlobalContext } from '../../Context/GlobalState';
+import { numberWithCommas } from '../../utils/format';
 
 export default function ItemList() {
     const { items, getItems } = useContext(GlobalContext);
@@ -9,6 +10,11 @@ export default function ItemList() {
     console.log('itemlist rendered')
 
     let content = null;
+    let total = 0;
+
+    for (const item of items) {
+        total += item.price;
+    }
 
     if (items) {
         content = items.map((item) => (
@@ -25,7 +31,7 @@ export default function ItemList() {
                 {content}
             </UnorderedList>
             <Spacer />
-            <Text ml="3%" align="left" mb="3%">Total: $X.yz</Text>
+            <Text ml="3%" align="left" mb="3%">Total: ${numberWithCommas(total.toFixed(2))}</Text>
             <Button colorScheme="orange" variant="outline" ml="3%" mr="3%" mb="2%">
                 Pay
             </Button>
