@@ -98,11 +98,12 @@ export const GlobalProvider = ({ children }) => {
 
         try {
             const res = await axios.post('/api/v1/saleItems', item, config);
-            
+            console.log('attempting to add item...')
             dispatch({
                 type: 'ADD_ITEM',
-                paylaod: res.data.data
+                payload: res.data.data
             })
+            console.log('item added successfully')
         } catch (err) {
             dispatch({
                 type: 'ERROR',

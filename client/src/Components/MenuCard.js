@@ -1,16 +1,32 @@
 import React, { useContext } from 'react';
-import { Flex, GridItem, Text, Button,
+import { Flex, GridItem, Text, Button, 
     Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody 
 } from "@chakra-ui/react";
 import {GlobalContext} from '../Context/GlobalState';
 
 export default function MenuCard({transaction}) {
-    const {selection} = useContext(GlobalContext);
+    const { selection, addItem } = useContext(GlobalContext);
 
-    const handleClick = () => {
-        console.log(`This is a ${selection} item`)
+    let name = '';
+    let price = 0;
+
+    if (selection == 'pastries') {
+        name = transaction.name;
+        price = transaction.price;
     }
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
+    const handleClick = async (e) => {
+        console.log('clicked')
+        const newItem = {
+            name: name,
+            price: price
+        }
+
+        addItem(newItem);
+        console.log('added')
+    }
+    
     let content = null;
 
     if (selection == 'coffees') {

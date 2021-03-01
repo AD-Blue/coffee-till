@@ -13,8 +13,7 @@ export default function Menu() {
         getItems();
     }, []);
 
-    console.log(selection);
-
+    //console.log(selection);
     let content = null;
 
     if (selection == 'coffees'){
@@ -24,6 +23,7 @@ export default function Menu() {
         content = <MenuGrid transactions={pastries} />
     }
 
+    console.log('menu rendered')
 
     return (
         <Flex direction="column" w='100%'>

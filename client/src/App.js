@@ -6,6 +6,7 @@ import ItemList from './Components/Item/ItemList';
 import {GlobalProvider} from './Context/GlobalState';
 
 function App() {
+  console.log('app rendered')
   return (
     <GlobalProvider>
       <Flex className="App" flexDirection="row" h="100%" justify="space-between">
