@@ -31,7 +31,7 @@ export default function ItemList() {
                 {content}
             </UnorderedList>
             <Spacer />
-            <Text ml="3%" align="left" mb="3%">Total: ${numberWithCommas(total.toFixed(2))}</Text>
+            <Text ml="3%" align="right" mb="3%" mr='3%'>Total: ${numberWithCommas(total.toFixed(2))}</Text>
             <Button colorScheme="orange" variant="outline" ml="3%" mr="3%" mb="2%">
                 Pay
             </Button>

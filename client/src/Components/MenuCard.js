@@ -7,14 +7,13 @@ import {GlobalContext} from '../Context/GlobalState';
 export default function MenuCard({transaction}) {
     const { selection, addItem } = useContext(GlobalContext);
 
-    let name = '';
+    let name = transaction.name;
     let price = 0;
 
     if (selection == 'pastries') {
         name = transaction.name;
         price = transaction.price;
     }
-    const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const handleClick = async (e) => {
         console.log('clicked')
@@ -36,13 +35,13 @@ export default function MenuCard({transaction}) {
         <PopoverHeader>Select a size</PopoverHeader>
         <PopoverBody>
             <Flex  justify="space-between" direction="row">
-                <Button>
+                <Button onClick={() => {price = transaction.smPrice; handleClick()}}>
                     Small
                 </Button>
-                <Button>
+                <Button onClick={() => {price = transaction.mdPrice; handleClick()}}>
                     Medium
                 </Button>
-                <Button>
+                <Button onClick={() => {price = transaction.lgPrice; handleClick()}}>
                     Large
                 </Button>
             </Flex>
@@ -66,7 +65,7 @@ export default function MenuCard({transaction}) {
                         null,
                         "180px"
                     }
-                    onClick={handleClick}
+                    onClick={() => {if(selection == 'pastries') {handleClick()}}}
                     transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
                     _active={{
                         bg: "#037ef3",
