@@ -38,7 +38,7 @@ export default function Categories() {
     }
 
     return (
-        <Flex flexDirection="row" w="100%" bg="#25262e" justify='space-between' pt='1%' pb='1%'>
+        <Flex flexDirection="row" w="100%" bg="#25262e" justify='space-between' pt='1%' pb='1%' color='brand.400'>
             <IconButton 
                 ref={btnRef} onClick={onOpen} icon={<HamburgerIcon />} 
                 ml='2%' colorScheme="teal" variant="outline" 
@@ -51,15 +51,15 @@ export default function Categories() {
             >
                 <DrawerOverlay>
                 <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerHeader>Advanced</DrawerHeader>
+                    <DrawerCloseButton color='brand.400' />
+                    <DrawerHeader bg='brand.100' color='brand.400'>Advanced</DrawerHeader>
 
-                    <DrawerBody>
-                        <Flex direction='column' h='100%'>
+                    <DrawerBody bg='brand.200'>
+                        <Flex direction='column' h='100%' color='brand.400'>
                             <Link as={RouterLink} to='/' mb='1rem'>Menu</Link>
                             <Link as={RouterLink} to='/orders' mb='1rem'>Order History</Link>
                             <Link as={RouterLink} to='/reports' mb='1rem'>Daily Reports</Link>
-                            <Button mt='40%' onClick={handleCloseDay}>Close Day</Button>
+                            <Button mt='40%' onClick={handleCloseDay} colorScheme="teal" variant="outline">Close Day</Button>
                         </Flex>
                         
                     </DrawerBody>
