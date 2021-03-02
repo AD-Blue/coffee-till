@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { Flex, SimpleGrid, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import Categories from './Categories';
-import MenuGrid from './MenuGrid';
-import {GlobalContext} from '../Context/GlobalState';
+import Categories from '../Categories';
+import MenuGrid from '../Menu/MenuGrid';
+import {GlobalContext} from '../../Context/GlobalState';
 
 export default function Menu() {
     const { coffees, getCoffees, pastries, getPastries, selection, getItems } = useContext(GlobalContext);

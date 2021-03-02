@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import Menu from './Components/Menu';
+import Menu from './Components/Views/Menu';
 import { Flex, Box } from "@chakra-ui/react";
 import ItemList from './Components/Item/ItemList';
 import {GlobalProvider} from './Context/GlobalState';

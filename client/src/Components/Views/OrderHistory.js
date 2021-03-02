@@ -3,7 +3,7 @@ import { Flex, Text, UnorderedList } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { GlobalContext } from '../../Context/GlobalState';
-import OrderCard from '../OrderCard';
+import OrderCard from '../Order/OrderCard';
 
 export default function OrderHistory() {
     const { orders, getOrders } = useContext(GlobalContext);
@@ -25,7 +25,7 @@ export default function OrderHistory() {
             <Flex overflowX='scroll' h='100%' mt='1%'>
                 <UnorderedList styleType='none'>
                     <Flex direction='row'>
-                        {orders.map((order) => (
+                        {orders.slice(0).reverse().map((order) => (
                             <OrderCard key={order._id} order={order} />
                         ))}
                     </Flex>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Flex, GridItem, Text, Button, 
     Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody 
 } from "@chakra-ui/react";
-import {GlobalContext} from '../Context/GlobalState';
+import {GlobalContext} from '../../Context/GlobalState';
 
 export default function MenuCard({transaction}) {
     const { selection, addItem } = useContext(GlobalContext);

@@ -18,12 +18,23 @@ export default function Categories() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
 
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    today = mm + '/' + dd + '/' + yyyy;
+
     const handleCoffees = () => {
         setSelection('coffees');
     }
 
     const handlePastries = () => {
         setSelection('pastries');
+    }
+
+    const handleCloseDay = () => {
+        console.log(today)
     }
 
     return (
@@ -45,7 +56,7 @@ export default function Categories() {
                             <Link as={RouterLink} to='/' mb='1rem'>Menu</Link>
                             <Link as={RouterLink} to='/orders' mb='1rem'>Order History</Link>
                             <Link as={RouterLink} to='/reports' mb='1rem'>Daily Reports</Link>
-                            <Button mt='40%'>Close Day</Button>
+                            <Button mt='40%' onClick={handleCloseDay}>Close Day</Button>
                         </Flex>
                         
                     </DrawerBody>
