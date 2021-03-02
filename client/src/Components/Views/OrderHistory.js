@@ -6,27 +6,28 @@ import { GlobalContext } from '../../Context/GlobalState';
 import OrderCard from '../OrderCard';
 
 export default function OrderHistory() {
-    const { order, getOrders } = useContext(GlobalContext);
+    const { orders, getOrders } = useContext(GlobalContext);
 
     useEffect(() => {
         getOrders();
-    }, [])
+    }, []);
 
-    console.log('history rendered/routed to')
-    
+    console.log('history rendered/routed to');
+    console.log(orders)
+
     return (
         <Flex direction='column' bg='green' w='100%'>
-            <Flex w='100%' bg='#037ef3'>
+            <Flex w='100%' bg='#037ef3' pt='1%' pb='1%'>
                 <Link to='/'>
-                    <ArrowBackIcon />
+                    <ArrowBackIcon w={8} h={8} ml='20%' />
                 </Link>
-                
             </Flex>
-            <Flex overflowX='scroll' h='100%'>
-                <UnorderedList>
+            <Flex overflowX='scroll' h='100%' mt='1%'>
+                <UnorderedList styleType='none'>
                     <Flex direction='row'>
-                        <OrderCard />
-                        <OrderCard />
+                        {orders.map((order) => (
+                            <OrderCard key={order._id} order={order} />
+                        ))}
                     </Flex>
                     
                 </UnorderedList>
