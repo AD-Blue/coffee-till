@@ -16,10 +16,10 @@ export default function OrderHistory() {
     console.log(orders)
 
     return (
-        <Flex direction='column' bg='green' w='100%'>
-            <Flex w='100%' bg='#037ef3' pt='1%' pb='1%'>
+        <Flex direction='column' bg='brand.200' w='100%'>
+            <Flex w='100%' bg='brand.100' pt='1%' pb='1%'>
                 <Link to='/'>
-                    <ArrowBackIcon w={8} h={8} ml='20%' />
+                    <ArrowBackIcon w={8} h={8} ml='20%' color='brand.400' />
                 </Link>
             </Flex>
             <Flex overflowX='scroll' h='100%' mt='1%'>

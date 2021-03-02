@@ -7,17 +7,17 @@ import OrderItem from './OrderItem';
 export default function OrderCard({order}) {
     return (
         <ListItem w='350px'>
-            <Flex border='2px' borderColor='tomato' direction='column' ml='2%' mr='2%' p='2%'>
-                <Heading size='md' mb='16px'>
+            <Flex border='2px' borderColor='brand.400' direction='column' ml='2%' mr='2%' p='2%'>
+                <Heading color='brand.400' size='md' mb='16px'>
                     Order ID: {order._id}
                 </Heading>
-                <UnorderedList>
+                <UnorderedList color='brand.400'>
                     {order.items.map((item) => (
                         <OrderItem key={item._id} item={item} />
                     )
                     )}
                 </UnorderedList>
-                <Text textAlign='right' mt='10%'>Total: ${numberWithCommas(order.total.toFixed(2))}</Text>
+                <Text textAlign='right' mt='10%' fontSize='24px' color='brand.400'>Total: ${numberWithCommas(order.total.toFixed(2))}</Text>
             </Flex>
         </ListItem>
     )
