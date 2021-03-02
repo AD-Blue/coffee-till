@@ -47,13 +47,17 @@ export default function ItemList() {
     }
 
     return (
-        <Flex w="25%" bg='#037ef3' flexDirection='column'>
-            <UnorderedList w="90%" pl="3%">
+        <Flex w="25%" bg='brand.100' flexDirection='column' borderLeft='1px' borderColor='brand.300'>
+            <UnorderedList w="90%" pl="3%" color='brand.400'>
                 {content}
             </UnorderedList>
             <Spacer />
-            <Text ml="3%" align="right" mb="3%" mr='3%'>Total: ${numberWithCommas(total.toFixed(2))}</Text>
-            <Button colorScheme="orange" variant="outline" ml="3%" mr="3%" mb="2%" onClick={handlePay}>
+            <Text 
+                ml="3%" color='brand.400' 
+                align="right" mb="3%" mr='3%'
+                fontSize='1.5rem'
+            >Total: ${numberWithCommas(total.toFixed(2))}</Text>
+            <Button colorScheme="teal" variant="outline" ml="3%" mr="3%" mb="3%" onClick={handlePay}>
                 Pay
             </Button>
         </Flex>

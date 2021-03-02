@@ -28,19 +28,28 @@ export default function MenuCard({transaction}) {
     let content = null;
 
     if (selection == 'coffees') {
-        content = <PopoverContent>
+        content = <PopoverContent bg='brand.100'>
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverHeader>Select a size</PopoverHeader>
         <PopoverBody>
             <Flex  justify="space-between" direction="row">
-                <Button onClick={() => {price = transaction.smPrice; handleClick()}}>
+                <Button 
+                    onClick={() => {price = transaction.smPrice; handleClick()}}
+                    colorScheme="teal" variant="outline"
+                >
                     Small
                 </Button>
-                <Button onClick={() => {price = transaction.mdPrice; handleClick()}}>
+                <Button 
+                    onClick={() => {price = transaction.mdPrice; handleClick()}}
+                    colorScheme="teal" variant="outline"
+                >
                     Medium
                 </Button>
-                <Button onClick={() => {price = transaction.lgPrice; handleClick()}}>
+                <Button 
+                    onClick={() => {price = transaction.lgPrice; handleClick()}}
+                    colorScheme="teal" variant="outline"    
+                >
                     Large
                 </Button>
             </Flex>
@@ -54,8 +63,12 @@ export default function MenuCard({transaction}) {
             <PopoverTrigger>
                 <GridItem 
                     as="button"
-                    rowSpan={1} colSpan={1} 
-                    bg="tomato" 
+                    rowSpan={1} colSpan={1}
+                    bg='brand.100'
+                    borderColor='brand.400'
+                    border='1px'
+                    color='brand.400'
+                    borderRadius='10px' 
                     boxSize={
                         "50px",
                         "70px",
@@ -67,9 +80,9 @@ export default function MenuCard({transaction}) {
                     onClick={() => {if(selection == 'pastries') {handleClick()}}}
                     transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
                     _active={{
-                        bg: "#037ef3",
+                        bg: "hover.100",
                         transform: "scale(0.98)",
-                        borderColor: "#037ef3",
+                        borderColor: "hover.100",
                     }}
                     _focus={{
                         boxShadow:

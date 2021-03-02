@@ -12,11 +12,11 @@ export default function ItemCard({item}) {
 
     return (
         <ListItem>
-            <Flex bg='tomato' fontSize="18px">
+            <Flex fontSize="18px" color='brand.400' alignContent='center'>
                 <Text>{item.name}</Text>
                 <Spacer />
                 <Text>${numberWithCommas(item.price.toFixed(2))}</Text>
-                <CloseButton onClick={handleClick} />
+                <CloseButton size='sm' onClick={handleClick} ml='1%' />
             </Flex>
         </ListItem>
     )

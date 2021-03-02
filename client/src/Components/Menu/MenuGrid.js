@@ -13,17 +13,11 @@ export default function MenuGrid({transactions}) {
                 spacingY='2%'
                 w="100%" p='2%'
                 overflowY='scroll'
-                bg={[
-                    'yellow',
-                    'green',
-                    'blue',
-                    'orange',
-                    'purple',
-                    'red']}
+                bg='#3b3c47'
                 css={{
                     '&::-webkit-scrollbar': {
                         width: '12px',
-                        background: 'red'
+                        background: '#3b3c47'
                     }
                 }}
                 h='100%'

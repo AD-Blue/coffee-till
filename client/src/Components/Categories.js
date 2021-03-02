@@ -38,8 +38,11 @@ export default function Categories() {
     }
 
     return (
-        <Flex flexDirection="row" w="100%" bg="green" justify='space-between' pt='1%' pb='1%'>
-            <IconButton ref={btnRef} onClick={onOpen} icon={<HamburgerIcon />} ml='2%' />
+        <Flex flexDirection="row" w="100%" bg="#25262e" justify='space-between' pt='1%' pb='1%'>
+            <IconButton 
+                ref={btnRef} onClick={onOpen} icon={<HamburgerIcon />} 
+                ml='2%' colorScheme="teal" variant="outline" 
+            />
             <Drawer
                 isOpen={isOpen}
                 placement="left"
@@ -65,10 +68,14 @@ export default function Categories() {
                 </DrawerOverlay>
             </Drawer>
             <Flex direction='row' justify='space-around' w='30%'>
-                <Button onClick={handleCoffees}>
+                <Button 
+                    onClick={handleCoffees} colorScheme="teal" variant="outline"
+                >
                     Coffees
                 </Button>
-                <Button onClick={handlePastries}>
+                <Button 
+                    onClick={handlePastries} colorScheme="teal" variant="outline"
+                >
                     Pastries
                 </Button>
             </Flex>

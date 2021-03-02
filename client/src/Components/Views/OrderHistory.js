@@ -29,7 +29,6 @@ export default function OrderHistory() {
                             <OrderCard key={order._id} order={order} />
                         ))}
                     </Flex>
-                    
                 </UnorderedList>
             </Flex>
         </Flex>
