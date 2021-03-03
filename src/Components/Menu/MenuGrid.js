@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuCard from './MenuCard';
-import { Flex, SimpleGrid, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 
 
 export default function MenuGrid({transactions}) {

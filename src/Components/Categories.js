@@ -16,10 +16,6 @@ import Navigation from './Navigation';
 
 export default function Categories() {
     const {setSelection} = useContext(GlobalContext);
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-
-    
 
     const handleCoffees = () => {
         setSelection('coffees');

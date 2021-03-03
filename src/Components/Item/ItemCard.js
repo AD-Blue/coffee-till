@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { ListItem, Text, Flex, Spacer, CloseButton } from "@chakra-ui/react"
-import AddOn from './AddOn';
 import { numberWithCommas } from '../../utils/format';
 import { GlobalContext } from '../../Context/GlobalState';
 

@@ -1,17 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Flex, Button, Spacer, Link,
-    IconButton, useDisclosure, Input, Text,
+import { Flex, Button, Link,
+    IconButton, useDisclosure,
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons';
-import {GlobalContext} from '../Context/GlobalState';
 
 export default function Navigation() {
     const btnRef = React.useRef();

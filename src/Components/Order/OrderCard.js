@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import { Flex, Text, ListItem, Heading, UnorderedList } from '@chakra-ui/react';
-import { GlobalContext } from '../../Context/GlobalState';
 import { numberWithCommas } from '../../utils/format';
 import OrderItem from './OrderItem';
 

@@ -10,7 +10,7 @@ export default function MenuCard({transaction}) {
     let name = transaction.name;
     let price = 0;
 
-    if (selection == 'pastries') {
+    if (selection === 'pastries') {
         price = transaction.price;
     }
 
@@ -27,7 +27,7 @@ export default function MenuCard({transaction}) {
     
     let content = null;
 
-    if (selection == 'coffees') {
+    if (selection === 'coffees') {
         content = <PopoverContent bg='brand.100'>
         <PopoverArrow />
         <PopoverCloseButton />
@@ -70,6 +70,7 @@ export default function MenuCard({transaction}) {
                     color='brand.400'
                     borderRadius='10px' 
                     boxSize={
+                        // eslint-disable-next-line no-sequences
                         "50px",
                         "70px",
                         "100px",
@@ -77,7 +78,7 @@ export default function MenuCard({transaction}) {
                         null,
                         "180px"
                     }
-                    onClick={() => {if(selection == 'pastries') {handleClick()}}}
+                    onClick={() => {if(selection === 'pastries') {handleClick()}}}
                     transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
                     _active={{
                         bg: "hover.100",

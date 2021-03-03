@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Flex, Button, Text, UnorderedList, Spacer } from "@chakra-ui/react";
 import ItemCard from './ItemCard';
 import { GlobalContext } from '../../Context/GlobalState';
 import { numberWithCommas } from '../../utils/format';
 
 export default function ItemList() {
-    const { items, getItems, removeItem, addOrder } = useContext(GlobalContext);
+    const { items, removeItem, addOrder } = useContext(GlobalContext);
 
     console.log('itemlist rendered')
 
