@@ -1,16 +1,5 @@
 import React, { useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { Flex, Button, Spacer, Link,
-    IconButton, useDisclosure, Input, Text,
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { Flex, Button } from "@chakra-ui/react";
 import {GlobalContext} from '../Context/GlobalState';
 import Navigation from './Navigation';
 

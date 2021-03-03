@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react'
-import { Flex, Text, UnorderedList } from '@chakra-ui/react';
+import { Flex, UnorderedList } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { GlobalContext } from '../../Context/GlobalState';
