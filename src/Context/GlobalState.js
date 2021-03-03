@@ -19,14 +19,17 @@ const initialState = {
 
 export const GlobalContext = createContext(initialState);
 
+const api = 'https://coffee-till-backend.herokuapp.com'
+
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
     const [selection, setSelection] = useState('coffees');
 
     async function getCoffees() {
+        console.log('link: ' + api + '/api/v1/coffees')
         try {
-            const res = await axios.get('/api/v1/coffees');
-
+            const res = await axios.get(api + '/api/v1/coffees');
+            
             dispatch({
                 type: 'GET_COFFEES',
                 payload: res.data.data
@@ -41,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getCoffee(id) {
         try {
-            const res = await axios.get(`/api/v1/coffees/${id}`);
+            const res = await axios.get(`${api}/api/v1/coffees/${id}`);
 
             dispatch({
                 type: 'GET_COFFEE',
@@ -63,7 +66,7 @@ export const GlobalProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post('/api/v1/coffees', coffee, config);
+            const res = await axios.post(api + '/api/v1/coffees', coffee, config);
             
             dispatch({
                 type: 'ADD_COFFEE',
@@ -79,7 +82,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getItems() {
         try {
-            const res = await axios.get('/api/v1/saleItems');
+            const res = await axios.get(api + '/api/v1/saleItems');
 
             dispatch({
                 type: 'GET_ITEMS',
@@ -101,7 +104,7 @@ export const GlobalProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post('/api/v1/saleItems', item, config);
+            const res = await axios.post(api + '/api/v1/saleItems', item, config);
             console.log('attempting to add item...')
             dispatch({
                 type: 'ADD_ITEM',
@@ -118,7 +121,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function removeItem(id) {
         try {
-            await axios.delete(`/api/v1/saleItems/${id}`);
+            await axios.delete(`${api}/api/v1/saleItems/${id}`);
 
             dispatch({
                 type: 'REMOVE_ITEM',
@@ -135,7 +138,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getPastries() {
         try {
-            const res = await axios.get('/api/v1/pastries');
+            const res = await axios.get(api + '/api/v1/pastries');
             
             dispatch({
                 type: 'GET_PASTRIES',
@@ -151,7 +154,7 @@ export const GlobalProvider = ({ children }) => {
     
     async function getPastry(id) {
         try {
-            const res = await axios.get(`/api/v1/pastries/${id}`);
+            const res = await axios.get(`${api}/api/v1/pastries/${id}`);
     
             dispatch({
                 type: 'GET_PASTRY',
@@ -173,7 +176,7 @@ export const GlobalProvider = ({ children }) => {
         }
     
         try {
-            const res = await axios.post('/api/v1/pastries', pastry, config);
+            const res = await axios.post(api + '/api/v1/pastries', pastry, config);
             
             dispatch({
                 type: 'ADD_PASTRY',
@@ -189,7 +192,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getOrders() {
         try {
-            const res = await axios.get('/api/v1/orders');
+            const res = await axios.get(api + '/api/v1/orders');
 
             dispatch({
                 type: 'GET_ORDERS',
@@ -205,7 +208,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getOrder(id) {
         try {
-            const res = await axios.get(`/api/v1/orders/${id}`);
+            const res = await axios.get(`${api}/api/v1/orders/${id}`);
 
             dispatch({
                 type: 'GET_ORDER',
@@ -227,7 +230,7 @@ export const GlobalProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post('/api/v1/orders', order, config);
+            const res = await axios.post(api + '/api/v1/orders', order, config);
             
             dispatch({
                 type: 'ADD_ORDER',
@@ -243,7 +246,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getReports() {
         try {
-            const res = await axios.get('/api/v1/reports');
+            const res = await axios.get(api + '/api/v1/reports');
 
             dispatch({
                 type: 'GET_REPORTS',
@@ -259,7 +262,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function getReport(id) {
         try {
-            const res = await axios.get(`/api/v1/reports/${id}`);
+            const res = await axios.get(`${api}/api/v1/reports/${id}`);
 
             dispatch({
                 type: 'GET_REPORT',
@@ -281,7 +284,7 @@ export const GlobalProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post('/api/v1/reports', report, config);
+            const res = await axios.post(api + '/api/v1/reports', report, config);
             
             dispatch({
                 type: 'ADD_ORDER',
