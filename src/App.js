@@ -6,6 +6,7 @@ import { Flex } from "@chakra-ui/react";
 import ItemList from './Components/Item/ItemList';
 import {GlobalProvider} from './Context/GlobalState';
 import OrderHistory from './Components/Views/OrderHistory';
+import ReportHistory from './Components/Views/ReportHistory';
 
 function App() {
   console.log('app rendered')
@@ -15,6 +16,9 @@ function App() {
         <Flex className="App" flexDirection="row" h="100%" justify="space-between">
           <Switch>
             
+            <Route exact path='/reports'>
+              <ReportHistory />
+            </Route>
 
             <Route exact path='/orders'>
               <OrderHistory />

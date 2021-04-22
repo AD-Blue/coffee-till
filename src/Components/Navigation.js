@@ -47,7 +47,7 @@ export default function Navigation() {
                         <Flex direction='column' h='100%' color='brand.400'>
                             <Link as={RouterLink} to='/' mb='1rem'>Menu</Link>
                             <Link as={RouterLink} to='/orders' mb='1rem'>Order History</Link>
-                            <Link as={RouterLink} to='/' mb='1rem'>Daily Reports</Link>
+                            <Link as={RouterLink} to='/reports' mb='1rem'>Daily Reports</Link>
                             <Button mt='40%' onClick={handleCloseDay} colorScheme="teal" variant="outline">Close Day</Button>
                         </Flex>
                         
