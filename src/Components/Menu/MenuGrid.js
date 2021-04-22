@@ -1,9 +1,19 @@
 import React from 'react';
 import MenuCard from './MenuCard';
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 
 
 export default function MenuGrid({transactions}) {
+    let content;
+
+    if (transactions) {
+        content = transactions.map((transaction) => (
+            <MenuCard key={transaction._id} transaction={transaction} />
+        ))
+    }
+    else {
+        content = <Text>Loading...</Text>
+    }
     return (
         <SimpleGrid 
                 columns={
@@ -22,9 +32,7 @@ export default function MenuGrid({transactions}) {
                 }}
                 h='100%'
             >
-                {transactions.map((transaction) => (
-                    <MenuCard key={transaction._id} transaction={transaction} />
-                ))}
+                {content}
             </SimpleGrid>
     )
 }
