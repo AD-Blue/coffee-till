@@ -1,20 +1,23 @@
 import React from 'react';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, UnorderedList, ListItem } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { ArrowBackIcon } from '@chakra-ui/icons';
+import NavBar from '../NavBar';
 
 export default function ReportHistory() {
     return (
         <Flex direction='column' bg='brand.200' w='100%'>
-            <Flex w='100%' bg='brand.100' pt='1%' pb='1%'>
-                <Link to='/'>
-                    <ArrowBackIcon w={8} h={8} ml='20%' color='brand.400' />
-                </Link>
-            </Flex>
+            <NavBar prev='/' />
 
             <Text>
                 Reports
             </Text>
+            <UnorderedList>
+                <ListItem>
+                    <Link to='/fullreport/123'>
+                        <Text>04/25/2021</Text>
+                    </Link>
+                </ListItem>
+            </UnorderedList>
         </Flex>
     )
 }

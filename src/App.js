@@ -7,6 +7,7 @@ import ItemList from './Components/Item/ItemList';
 import {GlobalProvider} from './Context/GlobalState';
 import OrderHistory from './Components/Views/OrderHistory';
 import ReportHistory from './Components/Views/ReportHistory';
+import ReportFull from './Components/Reports/ReportFull';
 
 function App() {
   console.log('app rendered')
@@ -16,6 +17,10 @@ function App() {
         <Flex className="App" flexDirection="row" h="100%" justify="space-between">
           <Switch>
             
+            <Route exact path='/fullreport/:id'>
+              <ReportFull />
+            </Route>
+
             <Route exact path='/reports'>
               <ReportHistory />
             </Route>

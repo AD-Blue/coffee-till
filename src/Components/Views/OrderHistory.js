@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react'
 import { Flex, UnorderedList } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-import { ArrowBackIcon } from '@chakra-ui/icons';
 import { GlobalContext } from '../../Context/GlobalState';
 import OrderCard from '../Order/OrderCard';
+import NavBar from '../NavBar';
 
 export default function OrderHistory() {
     const { orders, getOrders } = useContext(GlobalContext);
@@ -18,11 +17,7 @@ export default function OrderHistory() {
 
     return (
         <Flex direction='column' bg='brand.200' w='100%'>
-            <Flex w='100%' bg='brand.100' pt='1%' pb='1%'>
-                <Link to='/'>
-                    <ArrowBackIcon w={8} h={8} ml='20%' color='brand.400' />
-                </Link>
-            </Flex>
+            <NavBar prev='/' />
             <Flex overflowX='scroll' h='100%' mt='1%'>
                 <UnorderedList styleType='none'>
                     <Flex direction='row'>
