@@ -33,13 +33,12 @@ export default function Navigation() {
             orders
         }
 
-        //addReport(newReport);
+        addReport(newReport);
 
-        for (const order in orders) {
-            console.log(order)
+        for (const order of orders) {
+            removeOrder(order._id)
         }
-
-        console.log(orders)
+        console.log("New report added. Orders cleared.")
     }
 
     return (
