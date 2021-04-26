@@ -73,6 +73,11 @@ export default(state, action) => {
                 ...state,
                 orders: [...state.orders, action.payload]
             }
+        case 'REMOVE_ORDER':
+            return {
+                ...state,
+                orders: state.orders.filter(order => order._id !== action.payload)
+            }
         case 'GET_REPORTS':
             return {
                 ...state,

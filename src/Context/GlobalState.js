@@ -244,6 +244,22 @@ export const GlobalProvider = ({ children }) => {
         }
     }
 
+    async function removeOrder(id) {
+        try {
+            await axios.delete(`${api}/api/v1/orders/${id}`);
+
+            dispatch({
+                type: 'REMOVE_ORDER',
+                payload: id
+            })
+        } catch (err) {
+            dispatch({
+                type: 'ERROR',
+                payload: err.response.data.error
+            })
+        }
+    }
+
     async function getReports() {
         try {
             const res = await axios.get(api + '/api/v1/reports');
@@ -325,6 +341,7 @@ export const GlobalProvider = ({ children }) => {
         getOrders,
         getOrder,
         addOrder,
+        removeOrder,
         getReports,
         getReport,
         addReport

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Flex, Button, Link,
     IconButton, useDisclosure,
@@ -10,8 +10,11 @@ import { Flex, Button, Link,
     DrawerCloseButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { GlobalContext } from '../Context/GlobalState';
 
 export default function Navigation() {
+    const { orders, removeOrder, addReport } = useContext(GlobalContext);
+
     const btnRef = React.useRef();
 
     var today = new Date();
@@ -24,6 +27,23 @@ export default function Navigation() {
 
     const handleCloseDay = () => {
         console.log(today)
+
+        const orderList = [];
+
+        for (const order in orders) {
+            orderList.push(order);
+        }
+        console.log("Creating new report...");
+        const newReport = {
+            orders: orderList
+        }
+
+        addReport(newReport);
+        console.log("New report successfully created")
+
+        for (const order in orders) {
+            removeOrder(order._id);
+        }
     }
 
     return (
