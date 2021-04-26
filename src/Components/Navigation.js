@@ -26,20 +26,20 @@ export default function Navigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const handleCloseDay = () => {
-        console.log(today)
+        console.log(today);
 
         console.log("Creating new report...");
         const newReport = {
             orders
         }
 
-        addReport(newReport);
+        //addReport(newReport);
 
         for (const order in orders) {
-            removeOrder(order._id);
+            console.log(order)
         }
 
-        console.log("New report successfully created")
+        console.log(orders)
     }
 
     return (

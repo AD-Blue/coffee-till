@@ -27,21 +27,16 @@ export default function ItemList() {
 
     const handlePay = () => {
         console.log("paying...");
-
-        const itemList = [];
-
-        for (const item of items) {
-            itemList.push(item);
-        }
+        console.log(items)
         console.log('creating new order...')
         const newOrder = {
-            items: itemList,
-            total: total
+            items,
+            total
         }
-        console.log(itemList)
         addOrder(newOrder);
         console.log('new order added');
         for (const item of items) {
+            console.log(item);
             removeItem(item._id);
         }
     }
