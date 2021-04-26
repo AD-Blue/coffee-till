@@ -38,7 +38,7 @@ export default function ItemList() {
             items: itemList,
             total: total
         }
-
+        console.log(itemList)
         addOrder(newOrder);
         console.log('new order added');
         for (const item of items) {

@@ -28,30 +28,26 @@ export default function Navigation() {
     const handleCloseDay = () => {
         console.log(today)
 
-        const orderList = [];
-
-        for (const order in orders) {
-            orderList.push(order);
-        }
         console.log("Creating new report...");
         const newReport = {
-            orders: orderList
+            orders
         }
 
         addReport(newReport);
-        console.log("New report successfully created")
 
         for (const order in orders) {
             removeOrder(order._id);
         }
+
+        console.log("New report successfully created")
     }
 
     return (
         <>
         <IconButton 
-                ref={btnRef} onClick={onOpen} icon={<HamburgerIcon />} 
-                ml='2%' colorScheme="teal" variant="outline" 
-            />
+            ref={btnRef} onClick={onOpen} icon={<HamburgerIcon />} 
+            ml='2%' colorScheme="teal" variant="outline" 
+        />
         <Drawer
                 isOpen={isOpen}
                 placement="left"

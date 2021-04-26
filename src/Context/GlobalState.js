@@ -303,7 +303,7 @@ export const GlobalProvider = ({ children }) => {
             const res = await axios.post(api + '/api/v1/reports', report, config);
             
             dispatch({
-                type: 'ADD_ORDER',
+                type: 'ADD_REPORT',
                 payload: res.data.data
             })
         } catch (err) {
