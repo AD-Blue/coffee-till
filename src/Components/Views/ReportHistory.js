@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Flex, Text, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Flex, Text, UnorderedList, ListItem, Box } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar';
 import { GlobalContext } from '../../Context/GlobalState';
@@ -16,21 +16,22 @@ export default function ReportHistory() {
         <Flex direction='column' bg='brand.200' w='100%'>
             <NavBar prev='/' />
 
-            <Text>
-                Reports
-            </Text>
-            <UnorderedList>
-                <ListItem>
-                    <Link to='/fullreport/123'>
-                        <Text>PLACEHOLDER REPORT</Text>
-                    </Link>
+            <Box ml='3%' mt='1%'>
+                <Text fontSize='51px'>
+                    Reports
+                </Text>
+                <UnorderedList>
                     {reports.map((report) => (
-                        <Link to={'/fullreport/' + report._id}>
-                            <Text>{report.createdAt}</Text>
-                        </Link>
+                        <ListItem>
+                            <Link to={'/fullreport/' + report._id}>
+                                <Text fontSize='26px'>
+                                    {report.createdAt}
+                                </Text>
+                            </Link>
+                        </ListItem>
                     ))}
-                </ListItem>
-            </UnorderedList>
+                </UnorderedList>
+            </Box>
         </Flex>
     )
 }
