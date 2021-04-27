@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import NavBar from '../NavBar';
 import { GlobalContext } from '../../Context/GlobalState';
 import ReportOrderCard from './ReportOrderCard';
+import { numberWithCommas } from '../../utils/format';
 
 export default function ReportFull() {
     const { getReport, report } = useContext(GlobalContext);
@@ -13,6 +14,12 @@ export default function ReportFull() {
         getReport(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    let dayTotal = 0;
+
+    for (const order of report.orders) {
+        dayTotal += order.total;
+    }
 
     return (
         <Flex direction='column' bg='brand.200' w='100%'>
@@ -27,6 +34,9 @@ export default function ReportFull() {
                     ID: {report._id}
                 </Text>
                 
+                <Text>
+                    End of Day Total: ${numberWithCommas(dayTotal.toFixed(2))}
+                </Text>
             </Box>
 
             <Flex overflowX='scroll' h='100%' mt='3%'>
