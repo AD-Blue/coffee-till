@@ -25,7 +25,7 @@ export default function ReportFull() {
         <Flex direction='column' bg='brand.200' w='100%'>
             <NavBar prev='/reports' />
 
-            <Box ml='3%' mt='1%'>
+            <Box ml='3%' mt='1%' color='brand.400'>
                 <Heading>
                     {report.createdAt}
                 </Heading>

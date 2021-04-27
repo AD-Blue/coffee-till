@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Flex, Button, Link,
+import { Flex, Button, Link, Text,
     IconButton, useDisclosure,
     Drawer,
     DrawerBody,
@@ -39,6 +39,15 @@ export default function Navigation() {
             removeOrder(order._id)
         }
         console.log("New report added. Orders cleared.")
+
+        content = <Text color='brand.400' mt='10%'>Day closed, new report added</Text>
+    }
+
+    let content = <Text color='brand.400' mt='10%'>Business Day in progress</Text>
+
+    const handleClose = () => {
+        onClose();
+        content = <Text color='brand.400' mt='10%'>Business Day in progress</Text>
     }
 
     return (
@@ -50,7 +59,7 @@ export default function Navigation() {
         <Drawer
                 isOpen={isOpen}
                 placement="left"
-                onClose={onClose}
+                onClose={handleClose}
                 finalFocusRef={btnRef}
             >
                 <DrawerOverlay>
@@ -64,6 +73,7 @@ export default function Navigation() {
                             <Link as={RouterLink} to='/orders' mb='1rem'>Order History</Link>
                             <Link as={RouterLink} to='/reports' mb='1rem'>Daily Reports</Link>
                             <Button mt='40%' onClick={handleCloseDay} colorScheme="teal" variant="outline">Close Day</Button>
+                            {content}
                         </Flex>
                         
                     </DrawerBody>

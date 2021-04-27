@@ -16,7 +16,7 @@ export default function ReportHistory() {
         <Flex direction='column' bg='brand.200' w='100%'>
             <NavBar prev='/' />
 
-            <Box ml='3%' mt='1%'>
+            <Box ml='3%' mt='1%' color='brand.400'>
                 <Text fontSize='51px'>
                     Reports
                 </Text>
