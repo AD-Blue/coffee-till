@@ -18,6 +18,12 @@ export default function ReportFull() {
 
     let dayTotal = 0;
 
+    if(report.orders) {
+        for(const order of report.orders) {
+            dayTotal += order.total;
+        }
+    }
+
     console.log(report)
 
     return (
