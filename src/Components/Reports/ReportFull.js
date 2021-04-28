@@ -15,11 +15,10 @@ export default function ReportFull() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+
     let dayTotal = 0;
 
-    for (const order of report.orders) {
-        dayTotal += order.total;
-    }
+    console.log(report)
 
     return (
         <Flex direction='column' bg='brand.200' w='100%'>
@@ -42,7 +41,7 @@ export default function ReportFull() {
             <Flex overflowX='scroll' h='100%' mt='3%'>
                 <UnorderedList styleType='none'>
                     <Flex direction='row'>
-                        {report.orders.slice(0).reverse().map((order) => (
+                        {report.orders && report.orders.slice(0).reverse().map((order) => (
                             <ReportOrderCard key={order._id} order={order} />
                         ))}
                     </Flex>

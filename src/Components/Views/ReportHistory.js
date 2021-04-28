@@ -21,7 +21,7 @@ export default function ReportHistory() {
                     Reports
                 </Text>
                 <UnorderedList>
-                    {reports.map((report) => (
+                    {reports && reports.slice().map((report) => (
                         <ListItem>
                             <Link to={'/fullreport/' + report._id}>
                                 <Text fontSize='26px'>
